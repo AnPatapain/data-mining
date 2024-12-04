@@ -26,12 +26,12 @@ Les deux options de centroids intiaux retourneront la même résultat (SSE: 2.5 
 avoir la clustering final alors que la centroid initial [[2], [6]] a besoin plus de nombre d'itération
 pour avoid la clustering final
 #### 3. Visualiser l'état de cluster pour chaque itération
-Test Case 1: Initial Centroids = [[-2, 3], [-2, 1]]
+Test Case 1: Initial Centroids = [[-2, 3], [-2, 1]]  
 ![alt text](image.png)
 ![alt text](image-1.png)
 ![alt text](image-2.png)
 
-Test Case 2: Initial Centroids = [[2, -1], [1, 0]]
+Test Case 2: Initial Centroids = [[2, -1], [1, 0]]  
 ![alt text](image-3.png)
 ![alt text](image-4.png)
 ![alt text](image-5.png)
