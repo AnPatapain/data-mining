@@ -22,16 +22,16 @@ Number Iterations: 2
 All Iterations: {'iteration-1': [[12], [24]], 'iteration-2': [[np.float64(6.0)], [np.float64(27.0)]]}
 ```
 
-Les deux options de centroids intiaux retourneront la même résultat (SSE: 2.5 et centroids finaux [[6], [27]]) mais avec la centroid initial [[12, 24]] algorithme ne doit que passer 2 itérations pour 
+Les deux options de centroids intiaux retourneront la même résultat (SSE: 2.5 et centroids finaux [[6], [27]]) mais avec la centroid initial [[12, 24]] algorithme ne doit que passer 2 itérations pour
 avoir la clustering final alors que la centroid initial [[2], [6]] a besoin plus de nombre d'itération
 pour avoid la clustering final
 #### 3. Visualiser l'état de cluster pour chaque itération
-Test Case 1: Initial Centroids = [[-2, 3], [-2, 1]]  
+Test Case 1: Initial Centroids = [[-2, 3], [-2, 1]]
 ![alt text](image.png)
 ![alt text](image-1.png)
 ![alt text](image-2.png)
 
-Test Case 2: Initial Centroids = [[2, -1], [1, 0]]  
+Test Case 2: Initial Centroids = [[2, -1], [1, 0]]
 ![alt text](image-3.png)
 ![alt text](image-4.png)
 ![alt text](image-5.png)
@@ -40,15 +40,15 @@ Pour reproduire les images à partir le code, vous ne devez juste qu'exécuter l
 marqué avec la commentaire "Exercice 3" ou exécuter toutes les blocs.
 
 #### 4. Utiliser lib skcitlearn
-data1 = [[1], [2], [18], [20], [31]]  
-print(KMeans(n_clusters=3, n_init=1, init=array([[1], [2], [18]])).fit(data1).labels_)  
-affiche [0 1 2 2 2]  
+data1 = [[1], [2], [18], [20], [31]]
+print(KMeans(n_clusters=3, n_init=1, init=array([[1], [2], [18]])).fit(data1).labels_)
+affiche [0 1 2 2 2]
 
 Cela signifie que la cluster 1 contient le point 1, la cluster 2 contient le point 2 et la cluster 3
 contient les points 18, 20, 31. Donc c'est la même résultat que notre implémentation dans l'exercie 1.
 
 ## 2. Clustering Hiérachique
-La résulat pour le jeu de données data = [0.1, 0.9, 0.35, 0.8, 0.3, 0.4, 0.5, 0.6, 0.7, 0.2]  
+La résulat pour le jeu de données data = [0.1, 0.9, 0.35, 0.8, 0.3, 0.4, 0.5, 0.6, 0.7, 0.2]
 ![alt text](image-8.png)
 La résultat pour le jeu de données similarity_matrix:
 D'abord, nous convertissons la matrice en forme compacte
@@ -59,8 +59,32 @@ condensed_distance_matrix = distance_matrix[np.triu_indices(len(distance_matrix)
 ```
 ![alt text](image-9.png)
 
+## 3. Etude de cas
+Les clusters regroupent les pays dans les catégories (ou clusters).
+Observation:
+- Les pays dans une même région ou continent auront tendance à être dans un même cluster.
+- Les pays avec une similarité dans GDP ou niveau de vie sont groupés dans un groupe.
 
+#### K-means
 ![alt text](image-6.png)
 ![alt text](image-7.png)
 
-## 3. Etude de cas
+Le résultat dépend du choix initial du cluster, si le choix est bien situé dans la distribution du data, les clusters sont équilibrés. Sinon les clusters ne seront pas très utiles.
+Donc le choix aléatoire les centroids initial causera des différents résultats chaque fois (non convergence):
+
+![alt text](hierachy3.png)
+
+**Exemple un cas k=3**: un cluster a seulement Luxembourg, Malte, Singapour et Irlande, les 2 autres sont d' autres pays (cluster imbalance).
+
+#### Hierarchy cluster:
+
+![alt text](hierachy1.png)
+
+Une single-linkage peut conduire à des clusters allongés (effet de chaînage), regroupant potentiellement des points distants qui sont connectés par des points intermédiaires.
+
+![alt text](hierachy2.png)
+
+Le complete-linkage produit souvent des clusters plus compacts mais peut diviser des groupes qui sonts similaires.
+
+
+
