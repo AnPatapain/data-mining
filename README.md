@@ -67,6 +67,7 @@ Observation:
 
 #### K-means
 ![alt text](image-6.png)
+
 ![alt text](image-7.png)
 
 Le résultat dépend du choix initial du cluster, si le choix est bien situé dans la distribution du data, les clusters sont équilibrés. Sinon les clusters ne seront pas très utiles.
