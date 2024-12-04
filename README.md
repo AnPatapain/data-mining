@@ -39,13 +39,25 @@ Test Case 2: Initial Centroids = [[2, -1], [1, 0]]
 Pour reproduire les images à partir le code, vous ne devez juste qu'exécuter le bloc de code qui est
 marqué avec la commentaire "Exercice 3" ou exécuter toutes les blocs.
 
-#### 4. Utiliser lib
+#### 4. Utiliser lib skcitlearn
 data1 = [[1], [2], [18], [20], [31]]  
 print(KMeans(n_clusters=3, n_init=1, init=array([[1], [2], [18]])).fit(data1).labels_)  
 affiche [0 1 2 2 2]  
 
 Cela signifie que la cluster 1 contient le point 1, la cluster 2 contient le point 2 et la cluster 3
 contient les points 18, 20, 31. Donc c'est la même résultat que notre implémentation dans l'exercie 1.
+
+## 2. Clustering Hiérachique
+La résulat pour le jeu de données data = [0.1, 0.9, 0.35, 0.8, 0.3, 0.4, 0.5, 0.6, 0.7, 0.2]  
+![alt text](image-8.png)
+La résultat pour le jeu de données similarity_matrix:
+D'abord, nous convertissons la matrice en forme compacte
+```
+distance_matrix = 1 - similarity_matrix
+
+condensed_distance_matrix = distance_matrix[np.triu_indices(len(distance_matrix), k=1)]
+```
+![alt text](image-9.png)
 
 
 ![alt text](image-6.png)
