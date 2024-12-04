@@ -50,5 +50,3 @@ contient les points 18, 20, 31. Donc c'est la même résultat que notre impléme
 
 ![alt text](image-6.png)
 ![alt text](image-7.png)
-
-## 3. Etude de cas
